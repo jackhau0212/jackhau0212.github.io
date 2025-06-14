@@ -6,7 +6,7 @@ website:
   title: "Jack Hau"
   favicon: assets/about/images/profile.jpg
   twitter-card: true
-  site-url: https://jackhau0212.github.io
+  site-url: https://www.jackhau.com
   navbar:
     left:
       - href: index.qmd
