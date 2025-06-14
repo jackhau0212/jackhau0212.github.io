@@ -1,0 +1,32 @@
+---
+title: "Hi, I'm Jack"
+about:
+  template: jolla
+  image: assets/about/images/profile.jpg
+  links:
+    - icon: twitter-x
+      text: "X"
+      href: https://x.com/jackhau0212
+    - icon: github
+      text: Github
+      href: https://github.com/jackhau0212
+    - icon: linkedin
+      text: LinkedIn
+      href: https://www.linkedin.com/in/jackhau/
+---
+
+Hi, I am Jack. I am an AI software engineer at G-Research. I am interested in AI, ML, robotics, and sports.
+
+## Education
+
+Imperial College London | London, UK
+MSc in Artificial Intelligence | Sep 2023 - Sep 2024
+
+University of College London | London, UK
+MEng in Mechanical Engineering | Sep 2019 - Jun 2023
+
+## Experience
+
+G-Research | Generative AI Software Engineer | Jan 2025 - present
+
+G-Research | AI Software Engineer Intern | May 2024 - Sep 2024

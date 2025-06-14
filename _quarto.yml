@@ -1,0 +1,28 @@
+project:
+  type: website
+  output-dir: docs
+
+website:
+  title: "Jack Hau"
+  favicon: assets/about/images/profile.jpg
+  twitter-card: true
+  site-url: https://jackhau0212.github.io
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+  search: 
+    location: navbar
+    type: overlay
+
+format:
+  html:
+    respect-user-color-scheme: true
+    theme:
+      light: [cosmo]
+      dark: [cosmo]
+    css: styles.css
+    toc: true
+
+
+
