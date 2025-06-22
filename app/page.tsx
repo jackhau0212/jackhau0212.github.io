@@ -41,19 +41,19 @@ export default function HomePage() {
       city: 'Hong Kong',
       country: 'HKG',
       duration: '2018 - 2020',
-      description: 'Research collaboration and cultural immersion'
+      description: 'Born and raised'
     },
     {
       city: 'Bath',
       country: 'UK',
       duration: '2020 - 2022',
-      description: 'Studied and worked on machine learning projects'
+      description: 'Studied high school'
     },
     {
       city: 'London',
       country: 'UK',
       duration: '2022 - Present',
-      description: 'Working in tech and exploring AI innovation'
+      description: 'Studied at UCL and Imperial. Working in AI'
     },
     {
       city: 'Where next?',
