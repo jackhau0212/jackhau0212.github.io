@@ -6,7 +6,7 @@ import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 import { motion } from 'framer-motion'
 import { useTheme } from 'next-themes'
-import { MoonIcon, SunIcon, MonitorIcon } from 'lucide-react'
+import { MoonIcon, SunIcon } from 'lucide-react'
 
 type NavItem = {
     label: string
@@ -14,14 +14,13 @@ type NavItem = {
 }
 
 const leftNavItems: NavItem[] = [
-    { label: 'ABOUT', href: '/about' },
-    { label: 'WORK', href: '/work' },
-    { label: 'LIFE', href: '/life' },
+    { label: 'About', href: '/about' },
+    { label: 'Work', href: '/work' },
 ]
 
-const centerNavItems: NavItem[] = [
-    { label: 'BLOG', href: '/blog' },
-    { label: 'AI CHAT', href: '/chat' },
+const rightNavItems: NavItem[] = [
+    { label: 'Thoughts', href: '/blog' },
+    { label: 'Chat', href: '/chat' },
 ]
 
 // Logo Component
@@ -37,7 +36,7 @@ function Logo() {
                     className="h-8 w-8"
                 />
             </div>
-            <span className="font-semibold text-black dark:text-white">JACK HAU</span>
+            <span className="font-semibold text-black dark:text-white">Jack Hau</span>
         </Link>
     )
 }
@@ -47,7 +46,7 @@ function NavLink({ item, isActive, layoutId }: { item: NavItem; isActive: boolea
     return (
         <Link
             href={item.href}
-            className={`relative px-1 py-2 text-sm transition-colors ${isActive
+            className={`relative px-3 py-2 text-sm transition-colors ${isActive
                 ? 'text-black dark:text-white'
                 : 'text-zinc-600 hover:text-black dark:text-zinc-400 dark:hover:text-white'
                 }`}
@@ -76,50 +75,23 @@ function ThemeToggle() {
     // Don't render theme-dependent content until mounted
     if (!mounted) {
         return (
-            <div className="flex items-center space-x-1">
-                <button
-                    className="flex h-8 w-8 items-center justify-center rounded-full text-zinc-600 transition-colors hover:text-black dark:text-zinc-400 dark:hover:text-white"
-                    aria-label="System theme"
-                >
-                    <MonitorIcon className="h-4 w-4" />
-                </button>
-            </div>
+            <button
+                className="flex h-8 w-8 items-center justify-center rounded-full text-zinc-600 transition-colors hover:text-black dark:text-zinc-400 dark:hover:text-white"
+                aria-label="Toggle theme"
+            >
+                <MoonIcon className="h-4 w-4" />
+            </button>
         )
     }
 
     return (
-        <div className="flex items-center space-x-1">
-            <button
-                onClick={() => setTheme('system')}
-                className={`flex h-8 w-8 items-center justify-center rounded-full transition-colors ${theme === 'system'
-                    ? 'text-black dark:text-white'
-                    : 'text-zinc-600 hover:text-black dark:text-zinc-400 dark:hover:text-white'
-                    }`}
-                aria-label="System theme"
-            >
-                <MonitorIcon className="h-4 w-4" />
-            </button>
-            <button
-                onClick={() => setTheme('dark')}
-                className={`flex h-8 w-8 items-center justify-center rounded-full transition-colors ${theme === 'dark'
-                    ? 'text-black dark:text-white'
-                    : 'text-zinc-600 hover:text-black dark:text-zinc-400 dark:hover:text-white'
-                    }`}
-                aria-label="Dark theme"
-            >
-                <MoonIcon className="h-4 w-4" />
-            </button>
-            <button
-                onClick={() => setTheme('light')}
-                className={`flex h-8 w-8 items-center justify-center rounded-full transition-colors ${theme === 'light'
-                    ? 'text-black dark:text-white'
-                    : 'text-zinc-600 hover:text-black dark:text-zinc-400 dark:hover:text-white'
-                    }`}
-                aria-label="Light theme"
-            >
-                <SunIcon className="h-4 w-4" />
-            </button>
-        </div>
+        <button
+            onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+            className="flex h-8 w-8 items-center justify-center rounded-full text-zinc-600 transition-colors hover:text-black dark:text-zinc-400 dark:hover:text-white"
+            aria-label="Toggle theme"
+        >
+            {theme === 'dark' ? <SunIcon className="h-4 w-4" /> : <MoonIcon className="h-4 w-4" />}
+        </button>
     )
 }
 
@@ -185,7 +157,7 @@ export function Navbar() {
     const pathname = usePathname()
     const [isOpen, setIsOpen] = useState(false)
     const [mounted, setMounted] = useState(false)
-    const allNavItems = [...leftNavItems, ...centerNavItems]
+    const allNavItems = [...leftNavItems, ...rightNavItems]
 
     useEffect(() => {
         setMounted(true)
@@ -194,43 +166,38 @@ export function Navbar() {
     if (!mounted) {
         return (
             <nav className="fixed top-0 z-50 w-full bg-white/80 backdrop-blur-md dark:bg-zinc-950/80">
-                <div className="relative mx-auto flex w-full max-w-screen-lg items-center justify-between border-b border-zinc-200 dark:border-zinc-800 px-6 py-3">
+                <div className="mx-auto flex w-full max-w-screen-lg items-center justify-between px-6 py-4">
                     {/* Left Section */}
-                    <div className="flex items-center space-x-8">
+                    <div className="flex items-center space-x-6">
+                        <div className="md:hidden">
+                            <MobileMenuToggle isOpen={isOpen} setIsOpen={setIsOpen} />
+                        </div>
                         <Logo />
-                        <div className="hidden md:flex md:items-center md:space-x-6">
+                        <div className="hidden md:flex md:items-center md:space-x-1">
                             {leftNavItems.map((item) => (
                                 <NavLink
                                     key={item.href}
                                     item={item}
                                     isActive={pathname === item.href}
-                                    layoutId="navbar-indicator"
+                                    layoutId="navbar-indicator-left"
                                 />
                             ))}
                         </div>
                     </div>
 
-                    {/* Center Section */}
-                    <div className="absolute left-1/2 top-1/2 hidden -translate-x-1/2 -translate-y-1/2 md:flex md:items-center md:space-x-6">
-                        {centerNavItems.map((item) => (
-                            <NavLink
-                                key={item.href}
-                                item={item}
-                                isActive={pathname === item.href}
-                                layoutId="navbar-indicator-center"
-                            />
-                        ))}
-                    </div>
-
                     {/* Right Section */}
                     <div className="flex items-center space-x-4">
+                        <div className="hidden md:flex md:items-center md:space-x-1">
+                            {rightNavItems.map((item) => (
+                                <NavLink
+                                    key={item.href}
+                                    item={item}
+                                    isActive={pathname === item.href}
+                                    layoutId="navbar-indicator-right"
+                                />
+                            ))}
+                        </div>
                         <ThemeToggle />
-                    </div>
-
-                    {/* Mobile Navigation */}
-                    <div className="flex items-center md:hidden">
-                        <ThemeToggle />
-                        <MobileMenuToggle isOpen={isOpen} setIsOpen={setIsOpen} />
                     </div>
                 </div>
 
@@ -241,43 +208,38 @@ export function Navbar() {
 
     return (
         <nav className="fixed top-0 z-50 w-full bg-white/80 backdrop-blur-md dark:bg-zinc-950/80">
-            <div className="relative mx-auto flex w-full max-w-screen-lg items-center justify-between border-b border-zinc-200 dark:border-zinc-800 px-6 py-3">
+            <div className="mx-auto flex w-full max-w-screen-lg items-center justify-between px-6 py-4">
                 {/* Left Section */}
-                <div className="flex items-center space-x-8">
+                <div className="flex items-center space-x-6">
+                    <div className="md:hidden">
+                        <MobileMenuToggle isOpen={isOpen} setIsOpen={setIsOpen} />
+                    </div>
                     <Logo />
-                    <div className="hidden md:flex md:items-center md:space-x-6">
+                    <div className="hidden md:flex md:items-center md:space-x-1">
                         {leftNavItems.map((item) => (
                             <NavLink
                                 key={item.href}
                                 item={item}
                                 isActive={pathname === item.href}
-                                layoutId="navbar-indicator"
+                                layoutId="navbar-indicator-left"
                             />
                         ))}
                     </div>
                 </div>
 
-                {/* Center Section */}
-                <div className="absolute left-1/2 top-1/2 hidden -translate-x-1/2 -translate-y-1/2 md:flex md:items-center md:space-x-6">
-                    {centerNavItems.map((item) => (
-                        <NavLink
-                            key={item.href}
-                            item={item}
-                            isActive={pathname === item.href}
-                            layoutId="navbar-indicator-center"
-                        />
-                    ))}
-                </div>
-
                 {/* Right Section */}
                 <div className="flex items-center space-x-4">
+                    <div className="hidden md:flex md:items-center md:space-x-1">
+                        {rightNavItems.map((item) => (
+                            <NavLink
+                                key={item.href}
+                                item={item}
+                                isActive={pathname === item.href}
+                                layoutId="navbar-indicator-right"
+                            />
+                        ))}
+                    </div>
                     <ThemeToggle />
-                </div>
-
-                {/* Mobile Navigation */}
-                <div className="flex items-center md:hidden">
-                    <ThemeToggle />
-                    <MobileMenuToggle isOpen={isOpen} setIsOpen={setIsOpen} />
                 </div>
             </div>
 
