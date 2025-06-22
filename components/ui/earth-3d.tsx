@@ -4,11 +4,10 @@ import { useEffect, useRef } from 'react'
 import * as THREE from 'three'
 
 interface Earth3DProps {
-    visitedCountries?: string[]
     className?: string
 }
 
-export default function Earth3D({ visitedCountries = [], className = '' }: Earth3DProps) {
+export default function Earth3D({ className = '' }: Earth3DProps) {
     const mountRef = useRef<HTMLDivElement>(null)
     const sceneRef = useRef<THREE.Scene | null>(null)
     const rendererRef = useRef<THREE.WebGLRenderer | null>(null)

@@ -38,33 +38,30 @@ export default function HomePage() {
   // Places lived data
   const placesLived = [
     {
-      city: 'Tokyo',
-      country: 'Japan',
+      city: 'Hong Kong',
+      country: 'HKG',
       duration: '2018 - 2020',
       description: 'Research collaboration and cultural immersion'
     },
     {
-      city: 'London',
-      country: 'United Kingdom',
+      city: 'Bath',
+      country: 'UK',
       duration: '2020 - 2022',
       description: 'Studied and worked on machine learning projects'
     },
     {
-      city: 'San Francisco',
-      country: 'United States',
+      city: 'London',
+      country: 'UK',
       duration: '2022 - Present',
       description: 'Working in tech and exploring AI innovation'
     },
     {
-      city: 'Future',
-      country: 'Future',
+      city: 'Where next?',
+      country: 'XXX',
       duration: 'Future -',
-      description: 'Somewhere in the future'
+      description: 'Somewhere hot for work, family, and fun'
     }
   ]
-
-  // Countries visited (for 3D Earth)
-  const countriesVisited = ['US', 'GB', 'JP', 'CA', 'FR', 'DE', 'IT', 'ES', 'NL', 'BE']
 
   return (
     <main className="max-w-4xl mx-auto px-6 py-4 space-y-8">
@@ -152,12 +149,8 @@ export default function HomePage() {
           {/* 3D Earth - Left Side */}
           <div className="space-y-6">
             <Earth3D
-              visitedCountries={countriesVisited}
               className="w-full h-96"
             />
-            <div className="text-xs text-zinc-500 dark:text-zinc-400 text-center">
-              {countriesVisited.length} countries visited • Interactive 3D globe
-            </div>
           </div>
 
           {/* Timeline - Right Side */}
