@@ -1,9 +1,9 @@
 import type { Metadata, Viewport } from 'next'
 import { Geist, Geist_Mono } from 'next/font/google'
 import './globals.css'
-import { Footer } from './footer'
+import { Footer } from '@/components/layout/footer'
 import { ThemeProvider } from 'next-themes'
-import { Navbar } from '@/components/ui/navbar'
+import { Navbar } from '@/components/layout/navbar'
 
 export const viewport: Viewport = {
   width: 'device-width',

@@ -7,21 +7,11 @@ import { usePathname } from 'next/navigation'
 import { motion } from 'framer-motion'
 import { useTheme } from 'next-themes'
 import { MoonIcon, SunIcon } from 'lucide-react'
+import { navigationConfig } from '@/lib/config/navigation'
+import type { NavItem } from '@/lib/types/navigation'
 
-type NavItem = {
-    label: string
-    href: string
-}
-
-const leftNavItems: NavItem[] = [
-    { label: 'About', href: '/about' },
-    { label: 'Work', href: '/work' },
-]
-
-const rightNavItems: NavItem[] = [
-    { label: 'Thoughts', href: '/blog' },
-    { label: 'Chat', href: '/chat' },
-]
+// Import favicon directly
+import favicon from '../../app/favicon.ico'
 
 // Logo Component
 function Logo() {
@@ -29,7 +19,7 @@ function Logo() {
         <Link href="/" className="flex items-center space-x-2">
             <div className="flex h-8 w-8 items-center justify-center">
                 <Image
-                    src="/favicon.ico"
+                    src={favicon}
                     alt="Jack Hau Logo"
                     width={32}
                     height={32}
@@ -140,8 +130,8 @@ function MobileMenu({ isOpen, navItems }: { isOpen: boolean; navItems: NavItem[]
                             key={item.href}
                             href={item.href}
                             className={`text-sm ${isActive
-                                    ? 'font-medium text-black dark:text-white'
-                                    : 'text-zinc-600 dark:text-zinc-400'
+                                ? 'font-medium text-black dark:text-white'
+                                : 'text-zinc-600 dark:text-zinc-400'
                                 }`}
                         >
                             {item.label}
@@ -157,6 +147,9 @@ export function Navbar() {
     const pathname = usePathname()
     const [isOpen, setIsOpen] = useState(false)
     const [mounted, setMounted] = useState(false)
+
+    // Use centralized navigation configuration
+    const { left: leftNavItems, right: rightNavItems } = navigationConfig
     const allNavItems = [...leftNavItems, ...rightNavItems]
 
     useEffect(() => {
