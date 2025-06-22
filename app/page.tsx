@@ -10,9 +10,9 @@ export default function HomePage() {
 
   // Array of image paths - you can add more images here
   const images = [
-    '/assets/home/profile1.jpg',
-    '/assets/home/profile1.jpg', // Duplicate for demo - replace with actual images
-    '/assets/home/profile1.jpg', // Duplicate for demo - replace with actual images
+    '/assets/home/profile_1.jpg',
+    '/assets/home/profile_2.jpg', // Duplicate for demo - replace with actual images
+    '/assets/home/profile_3.jpg', // Duplicate for demo - replace with actual images
   ]
 
   // Auto-advance slideshow on mobile
@@ -85,7 +85,7 @@ export default function HomePage() {
                 alt={`Profile image ${index + 1}`}
                 width={180}
                 height={180}
-                className="rounded-full"
+                className="rounded-full object-cover"
               />
             ))}
           </div>
@@ -97,7 +97,7 @@ export default function HomePage() {
               alt={`Profile image ${currentImageIndex + 1}`}
               width={180}
               height={180}
-              className="rounded-full"
+              className="rounded-full object-cover"
             />
 
             {/* Navigation dots */}
