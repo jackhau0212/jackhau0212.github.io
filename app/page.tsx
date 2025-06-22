@@ -38,10 +38,10 @@ export default function HomePage() {
   // Places lived data
   const placesLived = [
     {
-      city: 'San Francisco',
-      country: 'United States',
-      duration: '2022 - Present',
-      description: 'Working in tech and exploring AI innovation'
+      city: 'Tokyo',
+      country: 'Japan',
+      duration: '2018 - 2020',
+      description: 'Research collaboration and cultural immersion'
     },
     {
       city: 'London',
@@ -50,10 +50,16 @@ export default function HomePage() {
       description: 'Studied and worked on machine learning projects'
     },
     {
-      city: 'Tokyo',
-      country: 'Japan',
-      duration: '2018 - 2020',
-      description: 'Research collaboration and cultural immersion'
+      city: 'San Francisco',
+      country: 'United States',
+      duration: '2022 - Present',
+      description: 'Working in tech and exploring AI innovation'
+    },
+    {
+      city: 'Future',
+      country: 'Future',
+      duration: 'Future -',
+      description: 'Somewhere in the future'
     }
   ]
 
@@ -142,14 +148,50 @@ export default function HomePage() {
           My Journey
         </h2>
 
-        <div className="flex justify-center">
-          <div className="space-y-4 max-w-4xl w-full">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
+          {/* 3D Earth - Left Side */}
+          <div className="space-y-6">
             <Earth3D
               visitedCountries={countriesVisited}
               className="w-full h-96"
             />
-            <div className="mt-2 text-xs text-zinc-500 dark:text-zinc-400 text-center">
+            <div className="text-xs text-zinc-500 dark:text-zinc-400 text-center">
               {countriesVisited.length} countries visited • Interactive 3D globe
+            </div>
+          </div>
+
+          {/* Timeline - Right Side */}
+          <div className="space-y-6">
+            <div className="space-y-6">
+              {placesLived.map((place, index) => (
+                <div key={index} className="relative">
+                  {/* Timeline line */}
+                  {index < placesLived.length - 1 && (
+                    <div className="absolute left-6 top-12 w-0.5 h-16 bg-zinc-200 dark:bg-zinc-700" />
+                  )}
+
+                  {/* Timeline dot */}
+                  <div className="absolute left-4 top-4 w-4 h-4 bg-blue-500 rounded-full border-2 border-white dark:border-zinc-800 shadow-sm" />
+
+                  {/* Content */}
+                  <div className="ml-12">
+                    <div className="flex items-baseline gap-2 mb-1">
+                      <h4 className="text-lg font-medium text-zinc-900 dark:text-zinc-100">
+                        {place.city}
+                      </h4>
+                      <span className="text-sm text-zinc-500 dark:text-zinc-400">
+                        {place.country}
+                      </span>
+                    </div>
+                    <p className="text-sm text-blue-600 dark:text-blue-400 font-medium mb-2">
+                      {place.duration}
+                    </p>
+                    <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
+                      {place.description}
+                    </p>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </div>
