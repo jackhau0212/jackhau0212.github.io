@@ -51,10 +51,10 @@ export default function RootLayout({
         >
           <div className="flex min-h-screen w-full flex-col font-[family-name:var(--font-inter-tight)]">
             <Navbar />
-            <div className="relative mx-auto w-full max-w-screen-sm flex-1 px-2 pt-20">
+            <div className="relative mx-auto w-full max-w-screen-lg flex-1 px-2 pt-20">
               {children}
-              <Footer />
             </div>
+            <Footer />
           </div>
         </ThemeProvider>
       </body>
