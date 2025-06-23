@@ -16,7 +16,7 @@ function Logo() {
     <Link href="/" className="flex items-center space-x-2">
       <div className="flex h-8 w-8 items-center justify-center">
         <Image
-          src="/assets/favicon.ico"
+          src="/favicon.ico"
           alt="Jack Hau Logo"
           width={32}
           height={32}

@@ -5,6 +5,9 @@ const nextConfig = {
   output: 'export',
   reactStrictMode: true,
   pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'md', 'mdx'],
+  images: {
+    unoptimized: true,
+  },
 }
 
 const withMDX = createMDX({

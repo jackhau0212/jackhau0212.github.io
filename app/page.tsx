@@ -10,7 +10,7 @@ export default function HomePage() {
   // Array of image paths - you can add more images here
   const images = [
     '/assets/home/profile_1.jpg',
-    '/assets/home/profile_2.jpg', // Duplicate for demo - replace with actual images
+    '/assets/home/profile_2.JPG', // Duplicate for demo - replace with actual images
     '/assets/home/profile_3.jpg', // Duplicate for demo - replace with actual images
   ]
 
@@ -36,19 +36,19 @@ export default function HomePage() {
     {
       city: 'Hong Kong',
       country: 'HKG',
-      duration: '2018 - 2020',
+      duration: '2001 - 2013',
       description: 'Born and raised',
     },
     {
       city: 'Bath',
       country: 'UK',
-      duration: '2020 - 2022',
+      duration: '2013 - 2019',
       description: 'Studied high school',
     },
     {
       city: 'London',
       country: 'UK',
-      duration: '2022 - Present',
+      duration: '2019 - Present',
       description: 'Studied at UCL and Imperial. Working in AI',
     },
     {
