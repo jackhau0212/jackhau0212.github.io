@@ -162,7 +162,7 @@ export default function HomePage() {
           </div>
         </div>
 
-        <p className="mx-auto text-base leading-relaxed text-zinc-600 md:text-lg dark:text-zinc-400">
+        <p className="mx-auto max-w-2xl text-base leading-relaxed text-zinc-600 md:text-lg dark:text-zinc-400">
           I&apos;m an AI engineer who is passionate at exploring artificial
           intelligence, robotics, machine learning, and how technology shapes
           our future.
