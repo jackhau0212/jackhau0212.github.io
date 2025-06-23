@@ -1,6 +1,6 @@
 export interface SocialConfig {
-    platform: string
-    url: string
-    label: string
-    icon: string
-} 
+  platform: string
+  url: string
+  label: string
+  icon: string
+}

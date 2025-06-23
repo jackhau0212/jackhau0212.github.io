@@ -14,14 +14,14 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL('https://jackhau.com'),
   alternates: {
-    canonical: '/'
+    canonical: '/',
   },
   title: {
     default: 'Jack Hau',
-    template: '%s | Jack Hau 🤖'
+    template: '%s | Jack Hau 🤖',
   },
   description: 'Jack Hau is an AI engineer.',
-};
+}
 
 const geist = Geist({
   variable: '--font-geist',

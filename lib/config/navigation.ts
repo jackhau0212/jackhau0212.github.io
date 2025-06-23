@@ -1,12 +1,12 @@
 import { NavigationConfig } from '@/lib/types/navigation'
 
 export const navigationConfig: NavigationConfig = {
-    left: [
-        { label: 'About', href: '/about' },
-        { label: 'Work', href: '/work' },
-    ],
-    right: [
-        { label: 'Thoughts', href: '/blog' },
-        { label: 'Chat', href: '/chat' },
-    ],
+  left: [
+    { label: 'About', href: '/about' },
+    { label: 'Work', href: '/work' },
+  ],
+  right: [
+    { label: 'Thoughts', href: '/blog' },
+    { label: 'Chat', href: '/chat' },
+  ],
 }

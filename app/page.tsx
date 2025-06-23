@@ -2,7 +2,6 @@
 
 import Image from 'next/image'
 import { useState, useEffect } from 'react'
-import { socialLinks } from '@/lib/config/social'
 import Earth3D from '@/components/ui/earth-3d'
 
 export default function HomePage() {
@@ -32,52 +31,48 @@ export default function HomePage() {
     setCurrentImageIndex((prev) => (prev - 1 + images.length) % images.length)
   }
 
-  // Get X (Twitter) link from social config
-  const xLink = socialLinks.find(social => social.platform === 'X (Twitter)')
-
   // Places lived data
   const placesLived = [
     {
       city: 'Hong Kong',
       country: 'HKG',
       duration: '2018 - 2020',
-      description: 'Born and raised'
+      description: 'Born and raised',
     },
     {
       city: 'Bath',
       country: 'UK',
       duration: '2020 - 2022',
-      description: 'Studied high school'
+      description: 'Studied high school',
     },
     {
       city: 'London',
       country: 'UK',
       duration: '2022 - Present',
-      description: 'Studied at UCL and Imperial. Working in AI'
+      description: 'Studied at UCL and Imperial. Working in AI',
     },
     {
       city: 'Where next?',
       country: 'XXX',
       duration: 'Future -',
-      description: 'Somewhere hot for work, family, and fun'
-    }
+      description: 'Somewhere hot for work, family, and fun',
+    },
   ]
 
   return (
-    <main className="max-w-4xl mx-auto px-6 py-4 space-y-8">
-
-      <section className="text-center space-y-2 px-4">
-        <h1 className="text-2xl md:text-4xl font-extrabold tracking-tight">
+    <main className="mx-auto max-w-4xl space-y-8 px-6 py-4">
+      <section className="space-y-2 px-4 text-center">
+        <h1 className="text-2xl font-extrabold tracking-tight md:text-4xl">
           WHO AM I?
         </h1>
-        <h2 className="text-lg md:text-xl font-medium text-zinc-600 dark:text-zinc-400">
+        <h2 className="text-lg font-medium text-zinc-600 md:text-xl dark:text-zinc-400">
           AI Engineer
         </h2>
 
         {/* Image Gallery/Slideshow */}
         <div className="flex justify-center pt-4">
           {/* Desktop: Show all images side by side */}
-          <div className="hidden md:flex gap-6">
+          <div className="hidden gap-6 md:flex">
             {images.map((src, index) => (
               <Image
                 key={index}
@@ -91,7 +86,7 @@ export default function HomePage() {
           </div>
 
           {/* Mobile: Slideshow */}
-          <div className="md:hidden relative">
+          <div className="relative md:hidden">
             <Image
               src={images[currentImageIndex]}
               alt={`Profile image ${currentImageIndex + 1}`}
@@ -101,15 +96,16 @@ export default function HomePage() {
             />
 
             {/* Navigation dots */}
-            <div className="flex justify-center mt-4 gap-2">
+            <div className="mt-4 flex justify-center gap-2">
               {images.map((_, index) => (
                 <button
                   key={index}
                   onClick={() => setCurrentImageIndex(index)}
-                  className={`w-2 h-2 rounded-full transition-colors ${index === currentImageIndex
-                    ? 'bg-zinc-600 dark:bg-zinc-400'
-                    : 'bg-zinc-300 dark:bg-zinc-600'
-                    }`}
+                  className={`h-2 w-2 rounded-full transition-colors ${
+                    index === currentImageIndex
+                      ? 'bg-zinc-600 dark:bg-zinc-400'
+                      : 'bg-zinc-300 dark:bg-zinc-600'
+                  }`}
                 />
               ))}
             </div>
@@ -117,40 +113,59 @@ export default function HomePage() {
             {/* Navigation arrows */}
             <button
               onClick={prevImage}
-              className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 bg-white dark:bg-zinc-800 rounded-full p-2 shadow-lg hover:bg-zinc-50 dark:hover:bg-zinc-700 transition-colors"
+              className="absolute top-1/2 left-0 -translate-x-4 -translate-y-1/2 rounded-full bg-white p-2 shadow-lg transition-colors hover:bg-zinc-50 dark:bg-zinc-800 dark:hover:bg-zinc-700"
             >
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+              <svg
+                className="h-4 w-4"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M15 19l-7-7 7-7"
+                />
               </svg>
             </button>
             <button
               onClick={nextImage}
-              className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 bg-white dark:bg-zinc-800 rounded-full p-2 shadow-lg hover:bg-zinc-50 dark:hover:bg-zinc-700 transition-colors"
+              className="absolute top-1/2 right-0 translate-x-4 -translate-y-1/2 rounded-full bg-white p-2 shadow-lg transition-colors hover:bg-zinc-50 dark:bg-zinc-800 dark:hover:bg-zinc-700"
             >
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              <svg
+                className="h-4 w-4"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M9 5l7 7-7 7"
+                />
               </svg>
             </button>
           </div>
         </div>
 
-        <p className="mx-auto text-base md:text-lg text-zinc-600 dark:text-zinc-400 leading-relaxed">
-          I explore artificial intelligence, machine learning, and how technology shapes our future.
+        <p className="mx-auto text-base leading-relaxed text-zinc-600 md:text-lg dark:text-zinc-400">
+          I explore artificial intelligence, machine learning, and how
+          technology shapes our future.
         </p>
       </section>
 
       {/* 3D Earth Section */}
       <section className="space-y-6">
-        <h2 className="text-2xl font-bold text-zinc-900 dark:text-zinc-100 text-center">
+        <h2 className="text-center text-2xl font-bold text-zinc-900 dark:text-zinc-100">
           My Journey
         </h2>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
+        <div className="grid grid-cols-1 items-start gap-8 lg:grid-cols-2">
           {/* 3D Earth - Left Side */}
           <div className="space-y-6">
-            <Earth3D
-              className="w-full h-96"
-            />
+            <Earth3D className="h-96 w-full" />
           </div>
 
           {/* Timeline - Right Side */}
@@ -160,15 +175,15 @@ export default function HomePage() {
                 <div key={index} className="relative">
                   {/* Timeline line */}
                   {index < placesLived.length - 1 && (
-                    <div className="absolute left-6 top-12 w-0.5 h-16 bg-zinc-200 dark:bg-zinc-700" />
+                    <div className="absolute top-12 left-6 h-16 w-0.5 bg-zinc-200 dark:bg-zinc-700" />
                   )}
 
                   {/* Timeline dot */}
-                  <div className="absolute left-4 top-4 w-4 h-4 bg-blue-500 rounded-full border-2 border-white dark:border-zinc-800 shadow-sm" />
+                  <div className="absolute top-4 left-4 h-4 w-4 rounded-full border-2 border-white bg-blue-500 shadow-sm dark:border-zinc-800" />
 
                   {/* Content */}
                   <div className="ml-12">
-                    <div className="flex items-baseline gap-2 mb-1">
+                    <div className="mb-1 flex items-baseline gap-2">
                       <h4 className="text-lg font-medium text-zinc-900 dark:text-zinc-100">
                         {place.city}
                       </h4>
@@ -176,10 +191,10 @@ export default function HomePage() {
                         {place.country}
                       </span>
                     </div>
-                    <p className="text-sm text-blue-600 dark:text-blue-400 font-medium mb-2">
+                    <p className="mb-2 text-sm font-medium text-blue-600 dark:text-blue-400">
                       {place.duration}
                     </p>
-                    <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
+                    <p className="text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
                       {place.description}
                     </p>
                   </div>
@@ -189,7 +204,6 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-
     </main>
   )
 }

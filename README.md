@@ -61,15 +61,18 @@ portfolio/
 ## 🎨 Design System
 
 ### Colors
+
 - **Primary**: Black/White (theme-dependent)
 - **Secondary**: Zinc-600/Zinc-400 (theme-dependent)
 - **Background**: White/Zinc-950 (theme-dependent)
 
 ### Typography
+
 - **Font**: Geist (Google Fonts)
 - **Mono Font**: Geist Mono
 
 ### Components
+
 - **Navbar**: Fixed top navigation with theme toggle
 - **Footer**: Social links and copyright
 - **Theme Toggle**: Dark/Light mode switcher
@@ -77,17 +80,20 @@ portfolio/
 ## 🚀 Getting Started
 
 1. **Clone the repository**
+
    ```bash
    git clone <repository-url>
    cd portfolio
    ```
 
 2. **Install dependencies**
+
    ```bash
    npm install
    ```
 
 3. **Run the development server**
+
    ```bash
    npm run dev
    ```
@@ -105,17 +111,21 @@ portfolio/
 ## 🔧 Configuration
 
 ### Navigation
+
 Edit `lib/config/navigation.ts` to modify navigation items and social links.
 
 ### Theme
+
 The default theme is set to dark. Users can toggle between dark and light modes.
 
 ### Styling
+
 Global styles are in `app/globals.css`. Component-specific styles use Tailwind CSS classes.
 
 ## 📱 Responsive Design
 
 The website is fully responsive with breakpoints:
+
 - **Mobile**: < 768px
 - **Tablet**: 768px - 1024px
 - **Desktop**: > 1024px
