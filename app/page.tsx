@@ -60,13 +60,25 @@ export default function HomePage() {
   ]
 
   return (
-    <main className="mx-auto max-w-4xl space-y-8 px-6 py-4">
+    <main className="mx-auto max-w-4xl space-y-8 px-6 py-2">
       <section className="space-y-2 px-4 text-center">
+        {/* GIF */}
+        <div className="mb-4 flex justify-center">
+          <Image
+            src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExZXF6Zzh0NmF5dDkyMjUxNGYxOHRqcGJ2NmJjazB0d2gzNDRxZDNpeCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/Nx0rz3jtxtEre/giphy.gif"
+            alt="Hello wave GIF"
+            width={300}
+            height={300}
+            className="rounded-lg"
+          />
+        </div>
+
         <h1 className="text-2xl font-extrabold tracking-tight md:text-4xl">
-          WHO AM I?
+          Hi - I&apos;m Jack
         </h1>
-        <h2 className="text-lg font-medium text-zinc-600 md:text-xl dark:text-zinc-400">
-          AI Engineer
+
+        <h2 className="text-lg font-medium text-zinc-600 md:text-lg dark:text-zinc-400">
+          AI | Robotics | Machine Learning | Finance | Sports
         </h2>
 
         {/* Image Gallery/Slideshow */}
@@ -151,8 +163,9 @@ export default function HomePage() {
         </div>
 
         <p className="mx-auto text-base leading-relaxed text-zinc-600 md:text-lg dark:text-zinc-400">
-          I explore artificial intelligence, machine learning, and how
-          technology shapes our future.
+          I&apos;m an AI engineer who is passionate at exploring artificial
+          intelligence, robotics, machine learning, and how technology shapes
+          our future.
         </p>
       </section>
 
@@ -162,15 +175,15 @@ export default function HomePage() {
           My Journey
         </h2>
 
-        <div className="grid grid-cols-1 items-start gap-8 lg:grid-cols-2">
+        <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
           {/* 3D Earth - Left Side */}
           <div className="space-y-6">
             <Earth3D className="h-96 w-full" />
           </div>
 
           {/* Timeline - Right Side */}
-          <div className="space-y-6">
-            <div className="space-y-6">
+          <div className="space-y-6 lg:col-start-2">
+            <div className="mx-auto max-w-md space-y-6 lg:mx-0">
               {placesLived.map((place, index) => (
                 <div key={index} className="relative">
                   {/* Timeline line */}
