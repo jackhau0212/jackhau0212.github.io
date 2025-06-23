@@ -17,10 +17,46 @@ export const metadata: Metadata = {
     canonical: '/',
   },
   title: {
-    default: 'Jack Hau',
+    default: 'Jack Hau | AI Engineer',
     template: '%s | Jack Hau 🤖',
   },
-  description: 'Jack Hau is an AI engineer.',
+  description:
+    'Jack Hau is an AI engineer passionate about artificial intelligence, robotics, machine learning, and how technology shapes our future.',
+  openGraph: {
+    title: 'Jack Hau - AI Engineer',
+    description:
+      'AI engineer passionate about artificial intelligence, robotics, machine learning, and how technology shapes our future.',
+    url: 'https://jackhau.com',
+    siteName: 'Jack Hau',
+    images: [
+      {
+        url: '/assets/home/profile.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Jack Hau - AI Engineer',
+      },
+    ],
+    locale: 'en_UK',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Jack Hau - AI Engineer',
+    description:
+      'AI engineer passionate about artificial intelligence, robotics, machine learning, and how technology shapes our future.',
+    images: ['/assets/home/profile.jpg'],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
 }
 
 const geist = Geist({
