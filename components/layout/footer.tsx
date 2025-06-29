@@ -54,7 +54,7 @@ function SocialLinks() {
 export function Footer() {
   return (
     <footer className="w-full bg-white/80 backdrop-blur-md dark:bg-zinc-950/80">
-      <div className="mx-auto flex w-full max-w-screen-lg items-center justify-between px-6 py-8">
+      <div className="mx-auto flex w-full max-w-screen-md items-center justify-between px-6 py-8">
         <div className="text-sm text-zinc-500">Made with ❤️ by Jack Hau</div>
 
         <div>
