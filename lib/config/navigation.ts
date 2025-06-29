@@ -5,8 +5,5 @@ export const navigationConfig: NavigationConfig = {
     { label: 'About', href: '/about' },
     { label: 'Work', href: '/work' },
   ],
-  right: [
-    { label: 'Thoughts', href: '/thoughts' },
-    { label: 'Chat', href: '/chat' },
-  ],
+  right: [{ label: 'Thoughts', href: '/thoughts' }],
 }

@@ -62,20 +62,19 @@ export default function HomePage() {
   return (
     <main className="mx-auto max-w-4xl space-y-8 px-6 py-2">
       <section className="space-y-2 px-4 text-center">
-        {/* GIF */}
-        <div className="mb-4 flex justify-center">
+        {/* GIF and Heading inline */}
+        <div className="mb-4 flex items-center justify-center gap-4">
           <Image
-            src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExZXF6Zzh0NmF5dDkyMjUxNGYxOHRqcGJ2NmJjazB0d2gzNDRxZDNpeCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/Nx0rz3jtxtEre/giphy.gif"
+            src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExZXF6Zzh0NmF5dDkyMjUxNGYxOHRqcGJ2NmJkazB0d2gzNDRxZDNpeCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/Nx0rz3jtxtEre/giphy.gif"
             alt="Hello wave GIF"
-            width={300}
-            height={300}
+            width={80}
+            height={80}
             className="rounded-lg"
           />
+          <h1 className="text-2xl font-extrabold tracking-tight md:text-4xl">
+            Hi - I&apos;m Jack
+          </h1>
         </div>
-
-        <h1 className="text-2xl font-extrabold tracking-tight md:text-4xl">
-          Hi - I&apos;m Jack
-        </h1>
 
         <h2 className="text-lg font-medium text-zinc-600 md:text-lg dark:text-zinc-400">
           AI | Robotics | Machine Learning | Finance | Sports
@@ -92,7 +91,7 @@ export default function HomePage() {
                 alt={`Profile image ${index + 1}`}
                 width={180}
                 height={180}
-                className="rounded-full object-cover"
+                className="rounded-md object-cover"
               />
             ))}
           </div>
@@ -104,7 +103,7 @@ export default function HomePage() {
               alt={`Profile image ${currentImageIndex + 1}`}
               width={180}
               height={180}
-              className="rounded-full object-cover"
+              className="rounded-md object-cover"
             />
 
             {/* Navigation dots */}

@@ -4,10 +4,10 @@ import { useState } from 'react'
 import {
   Navbar as ResizableNavbar,
   NavBody,
-  NavItems,
+  // NavItems,
   MobileNav,
   NavbarLogo,
-  NavbarButton,
+  // NavbarButton,
   MobileNavHeader,
   MobileNavToggle,
   MobileNavMenu,
@@ -29,9 +29,9 @@ export function Navbar() {
         {/* Desktop Navigation */}
         <NavBody>
           <NavbarLogo />
-          <NavItems items={allNavItems} />
+          {/* <NavItems items={allNavItems} /> */}
           <div className="flex items-center gap-4">
-            <NavbarButton variant="secondary">Chat</NavbarButton>
+            {/* <NavbarButton variant="secondary">Chat</NavbarButton> */}
             <ThemeToggle />
           </div>
         </NavBody>
